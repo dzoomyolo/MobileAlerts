@@ -12,9 +12,9 @@ if($params[3]=="auth"){
         if(is_empty($name) || is_empty($pass)){
             $this->createError(400,"Not enought parameters");
         }
-        $l = $db->query('SELECT `pass` FROM `users` WHERE `name`= :name',array("name"=>$name));
+        $l = $db->query('SELECT `pass` FROM `user` WHERE `login`= :name',array("name"=>$name));
         if(password_verify($pass,$l['pass'])){
-            $id = $db->query('SELECT `id` FROM `users` WHERE `name`=:name AND `pass`=:pass',array("name"=>$name,"pass"=>$l['pass']));
+            $id = $db->query('SELECT `id` FROM `user` WHERE `login`=:name AND `pass`=:pass',array("name"=>$name,"pass"=>$l['pass']));
             $token = refreshToken($id['id']);
             $user = (object)array();
             $user->id = $id['id'];
