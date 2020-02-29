@@ -1,0 +1,4 @@
+<Files autoload, classes, functions>
+ order allow,deny
+ deny from all
+</Files> 

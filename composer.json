@@ -1,0 +1,13 @@
+{
+    "name": "dzoom/animpw",
+    "description": "Mobile notifications",
+    "type": "project",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "dzoom",
+            "email": "dzoomyolo@gmail.com"
+        }
+    ],
+    "require": {}
+}
