@@ -24,9 +24,6 @@ CREATE TABLE `alerts_config` (
   `push_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `alerts_config` (`id`, `user_id`, `push_id`) VALUES
-(1, 6, 96971);
-
 CREATE TABLE `codes` (
   `id` int(11) NOT NULL,
   `code` text NOT NULL,
