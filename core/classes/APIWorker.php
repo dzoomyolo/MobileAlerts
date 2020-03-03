@@ -6,6 +6,7 @@ class APIWorker{
     protected $method;
     protected $params;
     protected $answer;
+    protected $answerNotJson;
     protected $methods = array();
     function __construct(){
         $this->getRoutesAPI();
@@ -39,8 +40,13 @@ class APIWorker{
         }
     }
     private function createAnswer(){
-        $msg = json_encode($this->answer,JSON_UNESCAPED_UNICODE);
-        die($msg);
+        if(!is_empty($this->answerNotJson)){
+            die($this->answerNotJson);
+        }else{
+            header("Content-Type: application/json");
+            $msg = json_encode($this->answer,JSON_UNESCAPED_UNICODE);
+            die($msg); 
+        }
     }
     private function createError($errorCode,$msg){
         $err = new \stdClass;
