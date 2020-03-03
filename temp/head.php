@@ -10,5 +10,9 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/static/ico/favicon" type="image/x-icon">
 </head>
 <body>
+<script>
+let token = "<?=$_SESSION['token']?>";
+</script>

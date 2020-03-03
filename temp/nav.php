@@ -1,7 +1,7 @@
 <nav>
 <div class="nav-wrapper">
     <div class="nav-logo">
-        <a href="#"><img src="/static/png/logo" width="100%" alt="Navigation Logo"></a>
+        <a href="/"><img src="/static/png/logo" width="100%" alt="Navigation Logo"></a>
     </div>
     <div class="nav-buttons">
         <a class="nav-button" href="#">Возможности</a>
