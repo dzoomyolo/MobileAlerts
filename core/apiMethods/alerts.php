@@ -10,7 +10,7 @@ if($params[3]=="register"){
         $s_id = $_GET['pushalluserid'];
         $u_time = $_GET['time'];
         $ipAddress = $_SERVER['REMOTE_ADDR'];
-        $u = $db->query("SELECT `id` FROM `user` WHERE `ip`=:ip",array("ip"=>"178.67.87.224"));
+        $u = $db->query("SELECT `id` FROM `user` WHERE `ip`=:ip",array("ip"=>$ipAddress));
         $hash = md5("SECRET_CODE".$s_id.$u_time.$ipAddress);
         if(!is_empty($u['id'])){
             if($hash==$_GET['sign']){

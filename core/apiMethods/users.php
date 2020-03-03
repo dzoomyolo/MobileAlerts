@@ -33,7 +33,7 @@ if($params[3]=="auth"){
     }
     $l = $db->query('SELECT `id` FROM `user` WHERE `ref_token`= :token',array("token"=>$t));
     if(!is_empty($l['id'])){
-        $user = $db->query('SELECT `id`,`name`,`lastname`,`middlename` FROM `user` WHERE `id`= :id',array("id"=>$l['id']));
+        $user = $db->query('SELECT `id`,`name`,`lastname`,`middlename`,`privileges` FROM `user` WHERE `id`= :id',array("id"=>$l['id']));
         $uA = (object)array();
         $this->answer->user = $user;
     }else{
