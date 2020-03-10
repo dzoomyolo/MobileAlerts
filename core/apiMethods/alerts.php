@@ -23,6 +23,23 @@ if($params[3]=="register"){
             $this->createError(404,"User not found");
         }
     }    
+}else if($params[3]=="add"){
+    $t = htmlspecialchars($_POST['token']);
+    $r = htmlspecialchars($_POST['r']);
+    $title = htmlspecialchars($_POST['t']);
+    $m = htmlspecialchars($_POST['m']);
+    if(is_empty($t)||is_empty($r)||is_empty($title)||is_empty($t)){
+        $this->createError(400,"Not enought parameters");
+    }
+    $l = $db->query('SELECT `id`,`privileges` FROM `user` WHERE `ref_token`= :token',array("token"=>$t));
+    if(!is_empty($l['id'])){
+        if($l['privileges']>=2){
+            $db->update("INSERT INTO `alerts`(sender,receiver,title,message) VALUES(:s,:r,:t,:m)",array("s"=>$l['id'],"r"=>$r,"t"=>$title,"m"=>$m));
+            $this->answer->success = true;    
+        }
+    }else{
+        $this->createError(403,"Invalid Token");
+    }
 }
 
 ?>
